@@ -61,7 +61,7 @@
         .from('resultados_tmms')
         .select('genero, evaluacion_percepcion')
       if (error) {
-        console.error('Error obteniendo distribución:', error);
+        console.error('Error obteniendo distribuciï¿½n:', error);
         return [];
       }
       return data;
@@ -78,9 +78,9 @@
         data: {
           labels,
           datasets: [
-            { label: 'Percepción', data: percepcion, backgroundColor: 'rgba(255, 99, 132, 0.6)' },
-            { label: 'Comprensión', data: comprension, backgroundColor: 'rgba(54, 162, 235, 0.6)' },
-            { label: 'Regulación', data: regulacion, backgroundColor: 'rgba(75, 192, 192, 0.6)' },
+            { label: 'Percepciï¿½n', data: percepcion, backgroundColor: 'rgba(255, 99, 132, 0.6)' },
+            { label: 'Comprensiï¿½n', data: comprension, backgroundColor: 'rgba(54, 162, 235, 0.6)' },
+            { label: 'Regulaciï¿½n', data: regulacion, backgroundColor: 'rgba(75, 192, 192, 0.6)' },
           ]
         },
         options: {
@@ -88,7 +88,7 @@
           plugins: {
             title: {
               display: true,
-              text: 'Promedio por Dimensión y Género'
+              text: 'Promedio por Dimensiï¿½n y Gï¿½nero'
             }
           }
         }
@@ -114,7 +114,7 @@
           plugins: {
             title: {
               display: true,
-              text: 'Distribución de Evaluación en Percepción Emocional por Género'
+              text: 'Distribuciï¿½n de Evaluaciï¿½n en Percepciï¿½n Emocional por Gï¿½nero'
             }
           }
         }
