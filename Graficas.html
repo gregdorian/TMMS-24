@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard TMMS-24</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard Resultados TMMS-24</h1>
+
+    <div class="chart-container">
+        <canvas id="avgScoresByGender"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="distributionPerception"></canvas>
+    </div>
+
+    <script>
+    const { createClient } = supabase;
+    const supabaseUrl = 'https://eijeaimjxaywhohceqfc.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpamVhaW1qeGF5d2hvaGNlcWZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUxODg5NzEsImV4cCI6MjA2MDc2NDk3MX0.zyknNW6-uI0UtKhWIMVR-7K1EU5u_EYtpfsr8wgx7Mk';
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+    async function fetchAverageScores() {
+      const { data, error } = await supabaseClient.rpc('get_avg_scores_by_gender');
+      if (error) {
+        console.error('Error obteniendo datos:', error);
+        return [];
+      }
+      return data;
+    }
+
+    async function fetchPerceptionDistribution() {
+      const { data, error } = await supabaseClient
+        .from('resultados_tmms')
+        .select('genero, evaluacion_percepcion')
+      if (error) {
+        console.error('Error obteniendo distribución:', error);
+        return [];
+      }
+      return data;
+    }
+
+    function renderAvgChart(data) {
+      const labels = data.map(row => row.genero === 'male' ? 'Hombre' : 'Mujer');
+      const percepcion = data.map(row => row.avg_percepcion);
+      const comprension = data.map(row => row.avg_comprension);
+      const regulacion = data.map(row => row.avg_regulacion);
+
+      new Chart(document.getElementById('avgScoresByGender'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label: 'Percepción', data: percepcion, backgroundColor: 'rgba(255, 99, 132, 0.6)' },
+            { label: 'Comprensión', data: comprension, backgroundColor: 'rgba(54, 162, 235, 0.6)' },
+            { label: 'Regulación', data: regulacion, backgroundColor: 'rgba(75, 192, 192, 0.6)' },
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Promedio por Dimensión y Género'
+            }
+          }
+        }
+      });
+    }
+
+    function renderPerceptionChart(data) {
+      const categories = ['Debe mejorar', 'Adecuada', 'Excelente'];
+      const maleCounts = categories.map(cat => data.filter(d => d.genero === 'male' && d.evaluacion_percepcion === cat).length);
+      const femaleCounts = categories.map(cat => data.filter(d => d.genero === 'female' && d.evaluacion_percepcion === cat).length);
+
+      new Chart(document.getElementById('distributionPerception'), {
+        type: 'bar',
+        data: {
+          labels: categories,
+          datasets: [
+            { label: 'Hombres', data: maleCounts, backgroundColor: 'rgba(255, 159, 64, 0.6)' },
+            { label: 'Mujeres', data: femaleCounts, backgroundColor: 'rgba(153, 102, 255, 0.6)' },
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Distribución de Evaluación en Percepción Emocional por Género'
+            }
+          }
+        }
+      });
+    }
+
+    async function initDashboard() {
+      const avgScores = await fetchAverageScores();
+      renderAvgChart(avgScores);
+
+      const perceptionDist = await fetchPerceptionDistribution();
+      renderPerceptionChart(perceptionDist);
+    }
+
+    initDashboard();
+    </script>
+</body>
+</html>
