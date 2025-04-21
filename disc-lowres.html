@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test DISC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Test de Descubrimiento de la Personalidad DISC</h1>
+    <form id="discForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+
+      <!-- Preguntas -->
+      <div class="question-group">
+        <p>1a. Las personas me respetan.</p>
+        <label><input type="radio" name="q1a" value="mas"> Más</label>
+        <label><input type="radio" name="q1a" value="menos"> Menos</label>
+      </div>
+
+      <div class="question-group">
+        <p>1b. Tiendo a ser una persona amable.</p>
+        <label><input type="radio" name="q1b" value="mas"> Más</label>
+        <label><input type="radio" name="q1b" value="menos"> Menos</label>
+      </div>
+
+      <div class="question-group">
+        <p>1c. Acepto a la vida como viene.</p>
+        <label><input type="radio" name="q1c" value="mas"> Más</label>
+        <label><input type="radio" name="q1c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>1d. Las personas dicen que tengo una fuerte personalidad.</p>
+        <label><input type="radio" name="q1d" value="mas"> Más</label>
+        <label><input type="radio" name="q1d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>2a. Encuentro difícil relajarme.</p>
+        <label><input type="radio" name="q2a" value="mas"> Más</label>
+        <label><input type="radio" name="q2a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>2b. Tengo un círculo muy amplio de amigos.</p>
+        <label><input type="radio" name="q2b" value="mas"> Más</label>
+        <label><input type="radio" name="q2b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>2c. Siempre estoy listo para ayudar a otros.</p>
+        <label><input type="radio" name="q2c" value="mas"> Más</label>
+        <label><input type="radio" name="q2c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>2d. Me gusta comportarme correctamente.</p>
+        <label><input type="radio" name="q2d" value="mas"> Más</label>
+        <label><input type="radio" name="q2d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>3a. Tiendo a hacer lo que se me pide.</p>
+        <label><input type="radio" name="q3a" value="mas"> Más</label>
+        <label><input type="radio" name="q3a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>3b. Me gustan que las cosas estén limpias y ordenadas.</p>
+        <label><input type="radio" name="q3b" value="mas"> Más</label>
+        <label><input type="radio" name="q3b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>3c. Las personas no pueden rebajarme.</p>
+        <label><input type="radio" name="q3c" value="mas"> Más</label>
+        <label><input type="radio" name="q3c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>3d. Disfruto haciendo cosas divertidas.</p>
+        <label><input type="radio" name="q3d" value="mas"> Más</label>
+        <label><input type="radio" name="q3d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>4a. Respeto a mis mayores y a aquellas personas en autoridad.</p>
+        <label><input type="radio" name="q4a" value="mas"> Más</label>
+        <label><input type="radio" name="q4a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>4b. Siempre estoy dispuesto a tomar riesgos.</p>
+        <label><input type="radio" name="q4b" value="mas"> Más</label>
+        <label><input type="radio" name="q4b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>4c. Creo que las cosas resultarán bien.</p>
+        <label><input type="radio" name="q4c" value="mas"> Más</label>
+        <label><input type="radio" name="q4c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>4d. Siempre estoy dispuesto a ayudar.</p>
+        <label><input type="radio" name="q4d" value="mas"> Más</label>
+        <label><input type="radio" name="q4d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>5a. Soy una persona limpia y ordenada.</p>
+        <label><input type="radio" name="q5a" value="mas"> Más</label>
+        <label><input type="radio" name="q5a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>5b. Soy muy activo, tanto en el trabajo como en mis pasatiempos.</p>
+        <label><input type="radio" name="q5b" value="mas"> Más</label>
+        <label><input type="radio" name="q5b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>5c. Soy una persona tranquila y calmada.</p>
+        <label><input type="radio" name="q5c" value="mas"> Más</label>
+        <label><input type="radio" name="q5c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>5d. Generalmente hago las cosas a mi manera.</p>
+        <label><input type="radio" name="q5d" value="mas"> Más</label>
+        <label><input type="radio" name="q5d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>6a. Estoy contento con la vida.</p>
+        <label><input type="radio" name="q6a" value="mas"> Más</label>
+        <label><input type="radio" name="q6a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>6b. Confío en las personas.</p>
+        <label><input type="radio" name="q6b" value="mas"> Más</label>
+        <label><input type="radio" name="q6b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>6c. Me gusta la tranquilidad y el silencio.</p>
+        <label><input type="radio" name="q6c" value="mas"> Más</label>
+        <label><input type="radio" name="q6c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>6d. Tengo una actitud muy positiva.</p>
+        <label><input type="radio" name="q6d" value="mas"> Más</label>
+        <label><input type="radio" name="q6d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>7a. Tengo mucha fuerza de voluntad.</p>
+        <label><input type="radio" name="q7a" value="mas"> Más</label>
+        <label><input type="radio" name="q7a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>7b. Siempre pongo atención a lo que dicen los demás.</p>
+        <label><input type="radio" name="q7b" value="mas"> Más</label>
+        <label><input type="radio" name="q7b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>7c. Trato de ser servicial.</p>
+        <label><input type="radio" name="q7c" value="mas"> Más</label>
+        <label><input type="radio" name="q7c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>7d. Estoy siempre contento.</p>
+        <label><input type="radio" name="q7d" value="mas"> Más</label>
+        <label><input type="radio" name="q7d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>8a. Soy seguro de mí mismo.</p>
+        <label><input type="radio" name="q8a" value="mas"> Más</label>
+        <label><input type="radio" name="q8a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>8b. Las personas dicen que soy una persona comprensiva.</p>
+        <label><input type="radio" name="q8b" value="mas"> Más</label>
+        <label><input type="radio" name="q8b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>8c. Tengo una actitud tolerante hacia la vida.</p>
+        <label><input type="radio" name="q8c" value="mas"> Más</label>
+        <label><input type="radio" name="q8c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>8d. Expreso mis opiniones con seguridad.</p>
+        <label><input type="radio" name="q8d" value="mas"> Más</label>
+        <label><input type="radio" name="q8d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>9a. Nunca pierdo mi temperamento.</p>
+        <label><input type="radio" name="q9a" value="mas"> Más</label>
+        <label><input type="radio" name="q9a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>9b. Me gusta que las cosas sean precisas y correctas.</p>
+        <label><input type="radio" name="q9b" value="mas"> Más</label>
+        <label><input type="radio" name="q9b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>9c. Soy una persona muy segura de mí misma.</p>
+        <label><input type="radio" name="q9c" value="mas"> Más</label>
+        <label><input type="radio" name="q9c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>9d. Disfruto de las bromas y chistes.</p>
+        <label><input type="radio" name="q9d" value="mas"> Más</label>
+        <label><input type="radio" name="q9d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>10a. Mi comportamiento es bien disciplinado.</p>
+        <label><input type="radio" name="q10a" value="mas"> Más</label>
+        <label><input type="radio" name="q10a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>10b. Las personas me ven como alguien amable.</p>
+        <label><input type="radio" name="q10b" value="mas"> Más</label>
+        <label><input type="radio" name="q10b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>10c. Estoy siempre en movimiento.</p>
+        <label><input type="radio" name="q10c" value="mas"> Más</label>
+        <label><input type="radio" name="q10c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>10d. Persevero hasta que consigo lo que quiero.</p>
+        <label><input type="radio" name="q10d" value="mas"> Más</label>
+        <label><input type="radio" name="q10d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>11a. Disfruto competir.</p>
+        <label><input type="radio" name="q11a" value="mas"> Más</label>
+        <label><input type="radio" name="q11a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>11b. No me tomo la vida muy seriamente.</p>
+        <label><input type="radio" name="q11b" value="mas"> Más</label>
+        <label><input type="radio" name="q11b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>11c. Siempre considero a los demás.</p>
+        <label><input type="radio" name="q11c" value="mas"> Más</label>
+        <label><input type="radio" name="q11c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>11d. Soy una persona simpática.</p>
+        <label><input type="radio" name="q11d" value="mas"> Más</label>
+        <label><input type="radio" name="q11d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>12a. Soy muy persuasivo.</p>
+        <label><input type="radio" name="q12a" value="mas"> Más</label>
+        <label><input type="radio" name="q12a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>12b. Me veo a mí mismo como una persona calmada.</p>
+        <label><input type="radio" name="q12b" value="mas"> Más</label>
+        <label><input type="radio" name="q12b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>12c. Tengo una actitud de modestia.</p>
+        <label><input type="radio" name="q12c" value="mas"> Más</label>
+        <label><input type="radio" name="q12c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>12d. Usualmente se me ocurren ideas originales.</p>
+        <label><input type="radio" name="q12d" value="mas"> Más</label>
+        <label><input type="radio" name="q12d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>13a. Me gusta mucho ayudar a otros.</p>
+        <label><input type="radio" name="q13a" value="mas"> Más</label>
+        <label><input type="radio" name="q13a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>13b. No me gusta tentar al destino.</p>
+        <label><input type="radio" name="q13b" value="mas"> Más</label>
+        <label><input type="radio" name="q13b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>13c. No me rindo fácilmente.</p>
+        <label><input type="radio" name="q13c" value="mas"> Más</label>
+        <label><input type="radio" name="q13c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>13d. Las personas disfrutan mi compañía.</p>
+        <label><input type="radio" name="q13d" value="mas"> Más</label>
+        <label><input type="radio" name="q13d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>14a. Tiendo a ser una persona precavida.</p>
+        <label><input type="radio" name="q14a" value="mas"> Más</label>
+        <label><input type="radio" name="q14a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>14b. Soy una persona muy decidida.</p>
+        <label><input type="radio" name="q14b" value="mas"> Más</label>
+        <label><input type="radio" name="q14b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>14c. Soy bueno convenciendo a los demás.</p>
+        <label><input type="radio" name="q14c" value="mas"> Más</label>
+        <label><input type="radio" name="q14c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>14d. Usualmente soy una persona amigable.</p>
+        <label><input type="radio" name="q14d" value="mas"> Más</label>
+        <label><input type="radio" name="q14d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>15a. No me asusto fácilmente.</p>
+        <label><input type="radio" name="q15a" value="mas"> Más</label>
+        <label><input type="radio" name="q15a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>15b. Las personas encuentran mi compañía estimulante.</p>
+        <label><input type="radio" name="q15b" value="mas"> Más</label>
+        <label><input type="radio" name="q15b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>15c. Siempre estoy dispuesto a seguir órdenes.</p>
+        <label><input type="radio" name="q15c" value="mas"> Más</label>
+        <label><input type="radio" name="q15c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>15d. Soy más bien una persona tímida.</p>
+        <label><input type="radio" name="q15d" value="mas"> Más</label>
+        <label><input type="radio" name="q15d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>16a. Siempre estoy dispuesto a cambiar mis opiniones.</p>
+        <label><input type="radio" name="q16a" value="mas"> Más</label>
+        <label><input type="radio" name="q16a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>16b. Disfruto de una buena discusión.</p>
+        <label><input type="radio" name="q16b" value="mas"> Más</label>
+        <label><input type="radio" name="q16b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>16c. Soy una persona fácil de llevar.</p>
+        <label><input type="radio" name="q16c" value="mas"> Más</label>
+        <label><input type="radio" name="q16c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>16d. Siempre miro el lado positivo de la vida.</p>
+        <label><input type="radio" name="q16d" value="mas"> Más</label>
+        <label><input type="radio" name="q16d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>17a. Soy una persona muy sociable.</p>
+        <label><input type="radio" name="q17a" value="mas"> Más</label>
+        <label><input type="radio" name="q17a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>17b. Tengo bastante paciencia.</p>
+        <label><input type="radio" name="q17b" value="mas"> Más</label>
+        <label><input type="radio" name="q17b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>17c. Soy del tipo de personas auto-suficiente.</p>
+        <label><input type="radio" name="q17c" value="mas"> Más</label>
+        <label><input type="radio" name="q17c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>17d. Raramente alzo mi voz.</p>
+        <label><input type="radio" name="q17d" value="mas"> Más</label>
+        <label><input type="radio" name="q17d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>18a. Siempre estoy listo y dispuesto.</p>
+        <label><input type="radio" name="q18a" value="mas"> Más</label>
+        <label><input type="radio" name="q18a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>18b. Siempre estoy ansioso de probar cosas nuevas.</p>
+        <label><input type="radio" name="q18b" value="mas"> Más</label>
+        <label><input type="radio" name="q18b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>18c. No me gustan las discusiones.</p>
+        <label><input type="radio" name="q18c" value="mas"> Más</label>
+        <label><input type="radio" name="q18c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>18d. Las personas me describen de espíritu alegre.</p>
+        <label><input type="radio" name="q18d" value="mas"> Más</label>
+        <label><input type="radio" name="q18d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>19a. Disfruto asumiendo un riesgo.</p>
+        <label><input type="radio" name="q19a" value="mas"> Más</label>
+        <label><input type="radio" name="q19a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>19b. Soy muy receptivo con las ideas de los demás.</p>
+        <label><input type="radio" name="q19b" value="mas"> Más</label>
+        <label><input type="radio" name="q19b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>19c. Siempre soy cortés y educado.</p>
+        <label><input type="radio" name="q19c" value="mas"> Más</label>
+        <label><input type="radio" name="q19c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>19d. Soy más bien una persona moderada que extrema.</p>
+        <label><input type="radio" name="q19d" value="mas"> Más</label>
+        <label><input type="radio" name="q19d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>20a. Soy una persona más bien indulgente.</p>
+        <label><input type="radio" name="q20a" value="mas"> Más</label>
+        <label><input type="radio" name="q20a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>20b. Soy una persona sensible.</p>
+        <label><input type="radio" name="q20b" value="mas"> Más</label>
+        <label><input type="radio" name="q20b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>20c. Tengo mucha energía y vigor.</p>
+        <label><input type="radio" name="q20c" value="mas"> Más</label>
+        <label><input type="radio" name="q20c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>20d. Me puedo mezclar en cualquier ambiente.</p>
+        <label><input type="radio" name="q20d" value="mas"> Más</label>
+        <label><input type="radio" name="q20d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>21a. Disfruto conversando con las personas.</p>
+        <label><input type="radio" name="q21a" value="mas"> Más</label>
+        <label><input type="radio" name="q21a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>21b. Controlo mis emociones.</p>
+        <label><input type="radio" name="q21b" value="mas"> Más</label>
+        <label><input type="radio" name="q21b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>21c. Soy muy convencional en mi apariencia.</p>
+        <label><input type="radio" name="q21c" value="mas"> Más</label>
+        <label><input type="radio" name="q21c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>21d. Tomo decisiones rápidamente.</p>
+        <label><input type="radio" name="q21d" value="mas"> Más</label>
+        <label><input type="radio" name="q21d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>22a. Tiendo a guardar mis emociones para mí mismo.</p>
+        <label><input type="radio" name="q22a" value="mas"> Más</label>
+        <label><input type="radio" name="q22a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>22b. La precisión es muy importante para mí.</p>
+        <label><input type="radio" name="q22b" value="mas"> Más</label>
+        <label><input type="radio" name="q22b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>22c. Me gusta decir lo que se me viene a la cabeza.</p>
+        <label><input type="radio" name="q22c" value="mas"> Más</label>
+        <label><input type="radio" name="q22c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>22d. Soy muy amigable.</p>
+        <label><input type="radio" name="q22d" value="mas"> Más</label>
+        <label><input type="radio" name="q22d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>23a. Me gusta manejar las cosas con diplomacia.</p>
+        <label><input type="radio" name="q23a" value="mas"> Más</label>
+        <label><input type="radio" name="q23a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>23b. Soy una persona muy osada.</p>
+        <label><input type="radio" name="q23b" value="mas"> Más</label>
+        <label><input type="radio" name="q23b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>23c. A la mayoría de las personas les caigo bien.</p>
+        <label><input type="radio" name="q23c" value="mas"> Más</label>
+        <label><input type="radio" name="q23c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>23d. Me siento satisfecho con la vida.</p>
+        <label><input type="radio" name="q23d" value="mas"> Más</label>
+        <label><input type="radio" name="q23d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>24a. Soy una persona obediente.</p>
+        <label><input type="radio" name="q24a" value="mas"> Más</label>
+        <label><input type="radio" name="q24a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>24b. Siempre estoy dispuesto a intentarlo.</p>
+        <label><input type="radio" name="q24b" value="mas"> Más</label>
+        <label><input type="radio" name="q24b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>24c. Lealtad es una de mis fortalezas.</p>
+        <label><input type="radio" name="q24c" value="mas"> Más</label>
+        <label><input type="radio" name="q24c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>24d. Soy una persona atractiva para los demás.</p>
+        <label><input type="radio" name="q24d" value="mas"> Más</label>
+        <label><input type="radio" name="q24d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>25a. Tiendo a ser del tipo de persona más bien agresiva.</p>
+        <label><input type="radio" name="q25a" value="mas"> Más</label>
+        <label><input type="radio" name="q25a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>25b. Me gusta divertirme y tengo mucha personalidad.</p>
+        <label><input type="radio" name="q25b" value="mas"> Más</label>
+        <label><input type="radio" name="q25b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>25c. Las personas me ven como alguien fácil de conmover.</p>
+        <label><input type="radio" name="q25c" value="mas"> Más</label>
+        <label><input type="radio" name="q25c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>25d. Soy más bien una persona tímida.</p>
+        <label><input type="radio" name="q25d" value="mas"> Más</label>
+        <label><input type="radio" name="q25d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>26a. Soy bueno motivando a los demás.</p>
+        <label><input type="radio" name="q26a" value="mas"> Más</label>
+        <label><input type="radio" name="q26a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>26b. Paciencia es una de mis mayores fortalezas.</p>
+        <label><input type="radio" name="q26b" value="mas"> Más</label>
+        <label><input type="radio" name="q26b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>26c. Soy cuidadoso en decir la frase correcta.</p>
+        <label><input type="radio" name="q26c" value="mas"> Más</label>
+        <label><input type="radio" name="q26c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>26d. Tengo un fuerte deseo de ganar.</p>
+        <label><input type="radio" name="q26d" value="mas"> Más</label>
+        <label><input type="radio" name="q26d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>27a. Soy una persona fácil de llevar.</p>
+        <label><input type="radio" name="q27a" value="mas"> Más</label>
+        <label><input type="radio" name="q27a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>27b. Me da bastante satisfacción ayudar a otros.</p>
+        <label><input type="radio" name="q27b" value="mas"> Más</label>
+        <label><input type="radio" name="q27b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>27c. Siempre pienso las cosas muy bien.</p>
+        <label><input type="radio" name="q27c" value="mas"> Más</label>
+        <label><input type="radio" name="q27c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>27d. Prefiero hacer las cosas ahora que después.</p>
+        <label><input type="radio" name="q27d" value="mas"> Más</label>
+        <label><input type="radio" name="q27d" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>28a. Soy bueno analizando situaciones.</p>
+        <label><input type="radio" name="q28a" value="mas"> Más</label>
+        <label><input type="radio" name="q28a" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>28b. Me vuelvo inquieto fácilmente.</p>
+        <label><input type="radio" name="q28b" value="mas"> Más</label>
+        <label><input type="radio" name="q28b" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>28c. Pienso cómo mis decisiones pueden afectar a otros.</p>
+        <label><input type="radio" name="q28c" value="mas"> Más</label>
+        <label><input type="radio" name="q28c" value="menos"> Menos</label>
+      </div>
+      
+      <div class="question-group">
+        <p>28d. Las personas me ven como relajado y fácil de tratar.</p>
+        <label><input type="radio" name="q28d" value="mas"> Más</label>
+        <label><input type="radio" name="q28d" value="menos"> Menos</label>
+      </div>
+
+
+      <button type="submit">Enviar Respuestas</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
