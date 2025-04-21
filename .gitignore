@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TMMS-24/CopilotIndices/17.13.444.19527
+/.vs/TMMS-24/FileContentIndex
+/.vs/TMMS-24/v17/.wsuo
+*.json
+/.vs/TMMS-24/config/applicationhost.config
+/.vs/slnx.sqlite
+/.vs/slnx.sqlite-journal
