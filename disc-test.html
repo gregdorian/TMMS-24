@@ -8,234 +8,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
+  <link rel="stylesheet" href="styles/style.css">
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-    }
-
-    h1 {
-      color: #3498db;
-      text-align: center;
-    }
-
-    h2 {
-      color: #2c3e50;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-
-    .intro-box {
-      border-left: 5px solid #3498db;
-      background: #ecf6fd;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    .question {
-      margin-bottom: 20px;
-      border: 2px solid transparent;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .question.invalid {
-      border-color: #e74c3c;
-      background-color: #fef0ef;
-    }
-
-    .options {
-      margin-top: 8px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .options label {
-      margin-right: 15px;
-      display: inline-block;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    #error-message {
-      color: #e74c3c;
-      font-weight: bold;
-      display: none;
-      margin-bottom: 15px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-      margin-right: 10px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    #results {
-      margin-top: 40px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background: #f9f9f9;
-      display: none;
-    }
-
-    .result-section {
-      margin-bottom: 20px;
-    }
-
-    .result-section span {
-      font-weight: bold;
-    }
-
-    /* Estilos para el modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .modal-content button {
-      margin-top: 15px;
-      padding: 8px 16px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .disc-traits {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .trait-card {
-      width: 48%;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .trait-card.D {
-      border-left: 4px solid #e74c3c;
-      background-color: #fdecea;
-    }
-
-    .trait-card.I {
-      border-left: 4px solid #f39c12;
-      background-color: #fef5e7;
-    }
-
-    .trait-card.S {
-      border-left: 4px solid #2ecc71;
-      background-color: #e8f8f0;
-    }
-
-    .trait-card.C {
-      border-left: 4px solid #3498db;
-      background-color: #ebf5fb;
-    }
-
-    .trait-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .disc-graph {
-      width: 100%;
-      height: 200px;
-      margin: 20px 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-around;
-    }
-
-    .graph-bar {
-      width: 20%;
-      text-align: center;
-    }
-
-    .bar {
-      width: 80%;
-      margin: 0 auto;
-      transition: height 0.5s ease;
-    }
-
-    .bar.D {
-      background-color: #e74c3c;
-    }
-
-    .bar.I {
-      background-color: #f39c12;
-    }
-
-    .bar.S {
-      background-color: #2ecc71;
-    }
-
-    .bar.C {
-      background-color: #3498db;
-    }
-
-    .bar-label {
-      margin-top: 5px;
-      font-weight: bold;
-    }
-
-    .profile-description {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #f8f9fa;
-      border-radius: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -247,30 +21,36 @@
       <div class="disc-traits">
         <div class="trait-card D">
           <div class="trait-title">Dominancia (D)</div>
-          <div>Seguridad en sí mismo | competitivo | individualista | desafiante | orientado a metas | crítico e impaciente con otros.</div>
+          <div>Seguridad en sí mismo | competitivo | individualista | desafiante | orientado a metas | crítico e
+            impaciente con otros.</div>
         </div>
         <div class="trait-card I">
           <div class="trait-title">Influencia (I)</div>
-          <div>Extrovertido | generalmente hábil socialmente | disfruta las reuniones y relacionarse con las personas | optimista.</div>
+          <div>Extrovertido | generalmente hábil socialmente | disfruta las reuniones y relacionarse con las personas |
+            optimista.</div>
         </div>
         <div class="trait-card S">
           <div class="trait-title">Estabilidad (S)</div>
-          <div>Paciente | Dispuesto a ayudar a otros | Puede lidiar con la rutina, el trabajo detallado | controlado | calmado.</div>
+          <div>Paciente | Dispuesto a ayudar a otros | Puede lidiar con la rutina, el trabajo detallado | controlado |
+            calmado.</div>
         </div>
         <div class="trait-card C">
           <div class="trait-title">Concienzudez (C)</div>
           <div>Adaptable | evita tomar riesgos | cuidadoso | diplomático | se atiene a reglas y regulaciones.</div>
         </div>
       </div>
-      <p><strong>Instrucciones:</strong> Para cada grupo de 4 afirmaciones, seleccione la que MÁS se aplica a usted y la que MENOS se aplica.</p>
-      <p><em>Recuerde no existen respuestas "correctas" o "incorrectas" - se le pide que elija las respuestas que MÁS LE GUSTAN y aquellas que MENOS LE GUSTAN.</em></p>
+      <p><strong>Instrucciones:</strong> Para cada grupo de 4 afirmaciones, seleccione la que MÁS se aplica a usted y la
+        que MENOS se aplica.</p>
+      <p><em>Recuerde no existen respuestas "correctas" o "incorrectas" - se le pide que elija las respuestas que MÁS LE
+          GUSTAN y aquellas que MENOS LE GUSTAN.</em></p>
     </div>
     <form id="disc-form">
       <label for="participant-name"><strong>Nombre del participante:</strong></label>
-      <input id="participant-name" name="participant-name" placeholder="Escribe tu nombre (primero y luego apellido)" required="" type="text" />
+      <input id="participant-name" name="participant-name" placeholder="Escribe tu nombre (primero y luego apellido)"
+        required="" type="text" />
       <div id="questions-container"></div>
       <div id="error-message"></div>
-      <button id="calculate-btn" type="button">Calcular Resultados</button>
+      <button id="calculate-btn" type="button">Guardar/Calcular Resultados</button>
       <button id="download-pdf" type="button">Descargar PDF</button>
       <button id="download-excel" type="button">Descargar Excel</button>
       <button id="reset-form-btn" type="button">Limpiar formulario</button>
@@ -278,21 +58,21 @@
 
     <div id="results">
       <h2>Resultados de <span id="display-name"></span></h2>
-      
+
       <div class="disc-graph" id="disc-graph">
         <!-- Las barras se generarán dinámicamente con JavaScript -->
       </div>
-      
+
       <div class="result-section">
         <h3>Perfil DISC</h3>
         <div id="profile-description" class="profile-description"></div>
       </div>
-      
+
       <div class="result-section">
         <h3>Detalle por Rasgo</h3>
         <div id="trait-details"></div>
       </div>
-      
+
       <div class="result-section">
         <h3>Recomendaciones</h3>
         <div id="recommendations"></div>
@@ -307,13 +87,16 @@
       </div>
     </div>
   </div>
-  
+
   <script>
     // Configuración de Supabase
     const { createClient } = supabase;
     const supabaseUrl = 'https://eijeaimjxaywhohceqfc.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpamVhaW1qeGF5d2hvaGNlcWZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUxODg5NzEsImV4cCI6MjA2MDc2NDk3MX0.zyknNW6-uI0UtKhWIMVR-7K1EU5u_EYtpfsr8wgx7Mk';
     const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+    // Variable global para almacenar los resultados más recientes
+    let lastResults = { D: 0, I: 0, S: 0, C: 0 };
 
     // Funciones de manejo del modal
     function openModal() {
@@ -329,7 +112,7 @@
       document.getElementById("disc-form").reset();
       document.getElementById("results").style.display = "none";
       document.getElementById("error-message").style.display = "none";
-      
+
       // Limpiar selecciones de preguntas
       const questions = document.querySelectorAll('.question');
       questions.forEach(q => {
@@ -607,42 +390,45 @@
       const groupDiv = document.createElement("div");
       groupDiv.className = "question-group";
       groupDiv.innerHTML = `<h3>Grupo ${groupIndex + 1}</h3><p>Seleccione la afirmación que MÁS y MENOS se aplica a usted:</p>`;
-      
+
       group.forEach((question, questionIndex) => {
         const questionDiv = document.createElement("div");
         questionDiv.className = "question";
-        questionDiv.id = `question-${groupIndex+1}-${questionIndex+1}`;
+        questionDiv.id = `question-${groupIndex + 1}-${questionIndex + 1}`;
+
+        // Cambio de orden: primero el texto de la pregunta, luego los botones
         questionDiv.innerHTML = `
-          <div>
+           <div class="question-text">${question}</div>
+          <div class="options">
             <label>
-              <input type="radio" name="group-${groupIndex+1}-more" value="${questionTraits[groupIndex][questionIndex]}" data-question="${questionIndex}">
+              <input type="radio" name="group-${groupIndex + 1}-more" value="${questionTraits[groupIndex][questionIndex]}" data-question="${questionIndex}">
               MÁS me aplica
             </label>
             <label>
-              <input type="radio" name="group-${groupIndex+1}-less" value="${questionTraits[groupIndex][questionIndex]}" data-question="${questionIndex}">
+              <input type="radio" name="group-${groupIndex + 1}-less" value="${questionTraits[groupIndex][questionIndex]}" data-question="${questionIndex}">
               MENOS me aplica
             </label>
           </div>
-          <p>${question}</p>
         `;
         groupDiv.appendChild(questionDiv);
       });
-      
+
       container.appendChild(groupDiv);
     });
 
     // Función para calcular los resultados
-    document.getElementById("calculate-btn").addEventListener("click", () => {
+    document.getElementById("calculate-btn").addEventListener("click", async () => {
+      // generateGraphBars(results);
       const name = document.getElementById("participant-name").value.trim();
       const errorMsg = document.getElementById("error-message");
       const results = { D: 0, I: 0, S: 0, C: 0 };
       let incompleteGroups = [];
-      
+
       // Verificar que se hayan respondido todos los grupos
       for (let i = 1; i <= 28; i++) {
         const moreSelected = document.querySelector(`input[name="group-${i}-more"]:checked`);
         const lessSelected = document.querySelector(`input[name="group-${i}-less"]:checked`);
-        
+
         if (!moreSelected || !lessSelected) {
           incompleteGroups.push(i);
           // Resaltar grupo incompleto
@@ -652,22 +438,22 @@
           // Quitar resaltado si estaba marcado como inválido
           const groupDivs = document.querySelectorAll(`[id^="question-${i}-"]`);
           groupDivs.forEach(div => div.classList.remove("invalid"));
-          
+
           // Sumar puntos para MÁS seleccionado
           results[moreSelected.value]++;
-          
+
           // Restar puntos para MENOS seleccionado
           results[lessSelected.value]--;
         }
       }
-      
+
       if (!name || incompleteGroups.length > 0) {
         errorMsg.textContent = !name ? "Ingrese su nombre." : `Faltan selecciones en los grupos: ${incompleteGroups.join(', ')}`;
         errorMsg.style.display = "block";
         return;
       }
       errorMsg.style.display = "none";
-      
+
       // Normalizar resultados (asegurar que no sean negativos)
       const minScore = Math.min(...Object.values(results));
       if (minScore < 0) {
@@ -675,44 +461,63 @@
           results[trait] += Math.abs(minScore);
         }
       }
-      
+
+      // Guardar los resultados en la variable global
+      lastResults = { ...results };
+
       // Mostrar resultados
       document.getElementById("display-name").textContent = name;
-      displayResults(results);
+      console.log('Resultados finales:', results);
+displayResults(results);
       document.getElementById("results").style.display = "block";
-      
+
+      // Obtener el perfil para guardar
+      const profileType = getProfileType(results);
+
       // Guardar en Supabase
-      supabaseClient
-        .from('resultados_disc')
-        .insert([{
-          nombre: name,
-          dominio: results.D,
-          influencia: results.I,
-          estabilidad: results.S,
-          concienzudez: results.C,
-          perfil: getProfileType(results)
-        }])
-        .then(response => {
-          if (response.error) {
-            console.error('Error al guardar en Supabase:', response.error);
-          } else {
-            console.log('Resultado guardado en Supabase.');
-            openModal();
-          }
-        });
+      
+try {
+  const { data, error } = await supabaseClient
+    .from('resultados_disc')
+    .insert([{
+      nombre: name,
+      dominio: results.D,
+      influencia: results.I,
+      estabilidad: results.S,
+      concienzudez: results.C,
+      perfil: profileType,
+      fecha: new Date().toISOString()
+    }]);
+
+  if (error) {
+    console.error('Error al guardar en Supabase:', error);
+    if (error.code === '42P01') {
+      alert('Error: La tabla "resultados_disc" no existe en la base de datos.');
+    } else {
+      alert('Error al guardar en la base de datos: ' + error.message);
+    }
+  } else {
+    console.log('Resultado guardado exitosamente en Supabase:', data);
+    openModal();
+  }
+} catch (error) {
+  console.error('Error en la conexión con Supabase:', error);
+  alert('Error de conexión con la base de datos: ' + error.message);
+}
+
     });
 
     // Función para determinar el tipo de perfil basado en los resultados
     function getProfileType(results) {
       const maxTrait = Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
-      
+
       const profiles = {
         'D': 'Dominante - Orientado a resultados, decisivo, directo',
         'I': 'Influyente - Sociable, comunicativo, optimista',
         'S': 'Estable - Paciente, predecible, buen oyente',
         'C': 'Concienzudo - Analítico, preciso, sistemático'
       };
-      
+
       return profiles[maxTrait];
     }
 
@@ -725,11 +530,11 @@
         S: Math.round((results.S / total) * 100),
         C: Math.round((results.C / total) * 100)
       };
-      
+
       // Generar gráfico
       const graphDiv = document.getElementById("disc-graph");
       graphDiv.innerHTML = '';
-      
+
       for (const trait in percentages) {
         const barDiv = document.createElement("div");
         barDiv.className = "graph-bar";
@@ -739,11 +544,11 @@
         `;
         graphDiv.appendChild(barDiv);
       }
-      
+
       // Descripción del perfil
       const profileType = getProfileType(results);
       const profileDesc = document.getElementById("profile-description");
-      
+
       let description = '';
       if (results.D > results.I && results.D > results.S && results.D > results.C) {
         description = `
@@ -771,9 +576,8 @@
           Analítico, preciso y sistemático. Valora la calidad y la exactitud en su trabajo.</p>
         `;
       }
-      
       profileDesc.innerHTML = description;
-      
+
       // Detalle por rasgo
       const traitDetails = document.getElementById("trait-details");
       traitDetails.innerHTML = `
@@ -794,7 +598,7 @@
           <div>${getTraitDescription('C', results.C)}</div>
         </div>
       `;
-      
+
       // Recomendaciones
       const recommendations = document.getElementById("recommendations");
       recommendations.innerHTML = `
@@ -804,7 +608,7 @@
         </ul>
       `;
     }
-    
+
     // Función para obtener descripción detallada de cada rasgo
     function getTraitDescription(trait, score) {
       const descriptions = {
@@ -829,17 +633,17 @@
           'Alto: Muy analítico, preciso y atento a los detalles'
         ]
       };
-      
+
       if (score <= 5) return descriptions[trait][0];
       if (score <= 10) return descriptions[trait][1];
       return descriptions[trait][2];
     }
-    
+
     // Función para generar recomendaciones basadas en el perfil
     function getRecommendations(results) {
       const maxTrait = Object.keys(results).reduce((a, b) => results[a] > results[b] ? a : b);
       const recommendations = [];
-      
+
       if (maxTrait === 'D') {
         recommendations.push(
           "Aproveche su capacidad de liderazgo en roles que requieran toma de decisiones rápidas.",
@@ -865,7 +669,7 @@
           "Busque proyectos donde pueda aplicar su pensamiento lógico y sistemático."
         );
       }
-      
+
       // Recomendación general basada en el rasgo más bajo
       const minTrait = Object.keys(results).reduce((a, b) => results[a] < results[b] ? a : b);
       if (minTrait === 'D') {
@@ -877,7 +681,7 @@
       } else {
         recommendations.push("Considere trabajar en su atención a los detalles y precisión.");
       }
-      
+
       return recommendations;
     }
 
@@ -886,27 +690,27 @@
       const doc = new window.jspdf.jsPDF();
       doc.text("Resultados Test DISC", 20, 20);
       doc.text(`Nombre: ${document.getElementById("participant-name").value}`, 20, 30);
-      
+
       // Agregar gráfico (simplificado)
       doc.setFillColor(231, 76, 60);
-      doc.rect(20, 50, 40, 100, 'F'); // D
+      doc.rect(20, 50, 40, lastResults.D * 2, 'F'); // D
       doc.setFillColor(243, 156, 18);
-      doc.rect(70, 50, 40, 80, 'F');  // I
+      doc.rect(70, 50, 40, lastResults.I * 2, 'F');  // I
       doc.setFillColor(46, 204, 113);
-      doc.rect(120, 50, 40, 70, 'F'); // S
+      doc.rect(120, 50, 40, lastResults.S * 2, 'F'); // S
       doc.setFillColor(52, 152, 219);
-      doc.rect(170, 50, 40, 60, 'F'); // C
-      
+      doc.rect(170, 50, 40, lastResults.C * 2, 'F'); // C
+
       doc.text("D", 40, 155);
       doc.text("I", 90, 155);
       doc.text("S", 140, 155);
       doc.text("C", 190, 155);
-      
+
       // Agregar descripción del perfil
       const profileDesc = document.getElementById("profile-description").textContent;
       doc.text("Perfil:", 20, 170);
       doc.text(profileDesc, 20, 180, { maxWidth: 170 });
-      
+
       doc.save("Resultados_DISC.pdf");
     });
 
@@ -916,11 +720,11 @@
       const ws = XLSX.utils.aoa_to_sheet([
         ["Nombre", document.getElementById("participant-name").value],
         ["Rasgo", "Puntuación", "Descripción"],
-        ["Dominancia (D)", results.D, getTraitDescription('D', results.D)],
-        ["Influencia (I)", results.I, getTraitDescription('I', results.I)],
-        ["Estabilidad (S)", results.S, getTraitDescription('S', results.S)],
-        ["Concienzudez (C)", results.C, getTraitDescription('C', results.C)],
-        ["Perfil", "", getProfileType(results)]
+        ["Dominancia (D)", lastResults.D, getTraitDescription('D', lastResults.D)],
+        ["Influencia (I)", lastResults.I, getTraitDescription('I', lastResults.I)],
+        ["Estabilidad (S)", lastResults.S, getTraitDescription('S', lastResults.S)],
+        ["Concienzudez (C)", lastResults.C, getTraitDescription('C', lastResults.C)],
+        ["Perfil", "", getProfileType(lastResults)]
       ]);
       XLSX.utils.book_append_sheet(wb, ws, "Resultados");
       XLSX.writeFile(wb, "Resultados_DISC.xlsx");
@@ -928,6 +732,35 @@
 
     // Evento para el botón de resetear formulario
     document.getElementById("reset-form-btn").addEventListener("click", resetForm);
+    // Función para generar las barras dinámicamente
+    function generateGraphBars(results) {
+      const graphDiv = document.getElementById("disc-graph");
+      graphDiv.innerHTML = ''; // Limpiar contenido previo
+
+      // Calcular el total de puntos para obtener porcentajes
+      const total = Object.values(results).reduce((a, b) => a + b, 0);
+      const percentages = {
+        D: Math.round((results.D / total) * 100),
+        I: Math.round((results.I / total) * 100),
+        S: Math.round((results.S / total) * 100),
+        C: Math.round((results.C / total) * 100)
+      };
+
+      // Crear las barras para cada rasgo
+      for (const trait in percentages) {
+        const barDiv = document.createElement("div");
+        barDiv.className = "graph-bar";
+        barDiv.innerHTML = `
+      <div class="bar ${trait}" style="height: ${percentages[trait]}%;"></div>
+      <div class="bar-label">${trait} (${percentages[trait]}%)</div>
+    `;
+        graphDiv.appendChild(barDiv);
+      }
+    }
+
+    // Inicializar el formulario y ocultar resultados
+    document.getElementById("results").style.display = "none";
+    document.getElementById("error-message").style.display = "none";
   </script>
 </body>
 
